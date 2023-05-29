@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Edit</h1>
+<!--Cách 1 s dụng @RE-->
+<!--<form th:action="@{/student/edit/{id}(id=${studentEdit.id})}" method="post">-->
+<!--    <label>Name</label> <br>-->
+<!--    <input type="text" name="name" th:value="${studentEdit.name}"><br>-->
+<!--    <label>Address</label> <br>-->
+<!--    <input type="text" name="address" th:value="${studentEdit.address}"><br>-->
+<!--    <label>Age</label> <br>-->
+<!--    <input type="number" name="age" th:value="${studentEdit.age}"><br>-->
+<!--    <button type="submit">Create</button>-->
+<!--</form>-->
+<!--Cách 2 -->
+<form th:action="@{/student/edit/{id}(id=${studentEdit.id})}" method="post" th:object="${studentEdit}">
+    <label>Name</label> <br>
+    <input type="text" name="name" th:field="*{name}"><br>
+    <label>Address</label> <br>
+    <input type="text" name="address" th:field="*{address}"><br>
+    <label>Age</label> <br>
+    <input type="number" name="age" th:field="*{age}"><br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="/student/layout ::css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="the_h1">==============QUẢN LÝ SINH VIÊN JV 10===============</h1>
+<a th:href="@{/student/create}">Create Student</a>
+<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="st:${listStudent}">
+        <td th:text="${st.id}"></td>
+        <td><a th:text="${st.name}" th:href="@{/student/{id}/(id=${st.id})}"></a></td>
+        <td th:text="${st.address}"></td>
+        <td th:text="${st.age}"></td>
+        <td><a th:href="@{/student/edit/{id}(id=${st.id})}"><button>Edit</button></a></td>
+        <td><a th:href="@{/student/delete/{id}/(id=${st.id})}"><button>Delete</button></a></td>
+    </tr>
+</table>
+<!--<script>-->
+<!--    let the_h1 = document.getElementById('the_h1').innerHTML = '<button>Chuyển thành button</button>'-->
+<!--</script>-->
+</body>
+</html>

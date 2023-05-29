@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Are you sure to Delete</h1>
+<form th:action="@{/student/delete/{id}(id=studentDelete.id)}" method="post" th:object="${studentDelete}">
+  <label>Name</label> <br>
+  <input type="text" name="name" th:field="*{name}"><br>
+    <input type="text" name="name" th:field="*{id}" hidden><br>
+
+    <label>Address</label> <br>
+  <input type="text" name="address" th:field="*{address}"><br>
+  <label>Age</label> <br>
+  <input type="number" name="age" th:field="*{age}"><br>
+  <button type="submit">Yes</button>
+</form>
+<a href="/"><button>No</button></a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Form Create</h1>
+<!--Cách 1 s dụng @RE-->
+<!--<form th:action="@{/student/create}" method="post">-->
+<!--    <label>Name</label> <br>-->
+<!--    <input type="text" name="name"><br>-->
+<!--    <label>Address</label> <br>-->
+<!--    <input type="text" name="address"><br>-->
+<!--    <label>Age</label> <br>-->
+<!--    <input type="number" name="age"><br>-->
+<!--    <button type="submit">Create</button>-->
+<!--</form>-->
+<!-- Cách 2: Dùng th object-->
+<form th:action="@{/student/create}" method="post" th:object="${student}">
+    <label>Name</label> <br>
+    <input type="text" th:field="*{name}" ><br>
+    <label>Address</label> <br>
+    <input type="text" th:field="*{address}"><br>
+    <label>Age</label> <br>
+    <input type="number" th:field="*{age}" ><br>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>
